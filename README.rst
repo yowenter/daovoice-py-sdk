@@ -26,7 +26,8 @@ Resources
 
 Resources this API supports:
 
-    https://api.daovoice.io/conversations
+    https://api.daovoice.io/v1/conversations
+    https://api.daovoice.io/v1/admins
 
 
 
@@ -43,9 +44,17 @@ Conversations
     conversation = daovoice_client.conversations.get(id="conversation_id")
     print conversation.conversation_parts
     print conversation.conversation_message
-    
 
 
+Admins
+^^^^^
+
+
+.. code:: python
+    # list admins
+    admins = daovoice_client.admins.all()
+    for ad in admins:
+        print ad.name
 
 
 
