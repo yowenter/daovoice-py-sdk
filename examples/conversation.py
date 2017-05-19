@@ -13,3 +13,5 @@ admins = client.admins.all()
 print admins
 for ad in admins:
     print ad.name
+
+client.conversations.reply(id="0204274f-0e61-4c15-a794-9e950aca0eb0", admin_id=admins[0].admin_id, body="hello")
