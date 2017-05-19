@@ -2,6 +2,13 @@ DaoVoice Python Sdk
 ====================================
 
 
+Installation
+------------------
+
+::
+
+    pip install daovoice-sdk
+
 
 
 
