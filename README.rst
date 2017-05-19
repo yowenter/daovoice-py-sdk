@@ -47,10 +47,10 @@ Conversations
 
 
 Admins
-^^^^^
-
+^^^^^^
 
 .. code:: python
+
     # list admins
     admins = daovoice_client.admins.all()
     for ad in admins:
