@@ -16,7 +16,7 @@ Basic Usage
 
 
 
-Note that you can find your token  in "http://dashboard.daovoice.io/app/{app_id}/apps/settings/open-api"
+Note that you can find your token  in `http://dashboard.daovoice.io/app/{app_id}/apps/settings/open-api`
 
 
 
@@ -26,7 +26,6 @@ Resources
 
 Resources this API supports:
 
-::
     https://api.daovoice.io/conversations
 
 
@@ -42,8 +41,11 @@ Conversations
 
     # Get Conversation by id
     conversation = daovoice_client.conversations.get(id="conversation_id")
-
-
-
-
+    print conversation.conversation_parts
+    print conversation.conversation_message
     
+
+
+
+
+

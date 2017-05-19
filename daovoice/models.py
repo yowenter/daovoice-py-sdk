@@ -17,6 +17,9 @@ class Model(DataMapperBase):
     def from_resp_json(cls, resp_json):
         if isinstance(resp_json, dict):
             return cls(resp_json)
+        elif isinstance(resp_json, list):
+            return [cls(l) for l in resp_json]
+
 
     def __setattr__(self, key, value):
         if hasattr(self, key) and getattr(self, key) != value:
@@ -26,12 +29,12 @@ class Model(DataMapperBase):
 
 
 class Conversation(Model):
+    resource_path = "conversations"
     mapper = {
         "conversation_parts": ["conversation_parts", "daovoice.models.ConversationPart"],
         "conversation_message": ["conversation_message", "daovoice.models.ConversationMessage"],
         "user": ["user", "daovoice.models.User"]
     }
-    resource_path = "conversations"
 
 
 class ConversationPart(Model):
@@ -49,11 +52,11 @@ class Author(Model):
 
 
 class Admin(Author):
-    pass
+    resource_path = "admins"
 
 
 class User(Author):
-    pass
+    resource_path = "users"
 
 
 class Company(Model):

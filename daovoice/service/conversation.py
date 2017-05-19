@@ -10,5 +10,3 @@ class Conversation(BaseService, Get):
     @property
     def resource_class(self):
         return models.Conversation
-
-

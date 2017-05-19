@@ -8,5 +8,11 @@ class Get(object):
         return self.resource_class.from_resp_json(result)
 
 
+class SimpleAll(object):
+    def all(self, **kwargs):
+        request_url = self.client._url(self.resource_class.resource_path)
+
+        result = self.client._result(self.client._get(request_url))
+        return self.resource_class.from_resp_json(result)
 
 

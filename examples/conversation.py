@@ -7,3 +7,9 @@ conversation = client.conversations.get(id="0204274f-0e61-4c15-a794-9e950aca0eb0
 
 print conversation.conversation_parts
 print conversation.conversation_message
+
+admins = client.admins.all()
+
+print admins
+for ad in admins:
+    print ad.name
