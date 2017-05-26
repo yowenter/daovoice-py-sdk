@@ -33,8 +33,13 @@ Resources
 
 Resources this API supports:
 
-    https://api.daovoice.io/v1/conversations
+    https://api.daovoice.io/v1/conversations  
+
     https://api.daovoice.io/v1/admins
+
+    https://api.daovoice.io/v1/users
+
+    
 
 
 
@@ -67,6 +72,17 @@ Admins
     admins = daovoice_client.admins.all()
     for ad in admins:
         print ad.name
+
+User
+^^^^^^
+
+.. code:: python
+
+    # create user
+    user = daovoice_client.user.create(user_id="123456",name="example", email="example@daovoice.io")
+
+
+
 
 
 
