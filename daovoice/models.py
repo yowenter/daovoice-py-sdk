@@ -26,6 +26,13 @@ class Model(DataMapperBase):
             self.changed_attributes.append(key)
 
         super(Model, self).__setattr__(key, value)
+        
+        
+    
+        
+    
+    
+
 
 
 class Conversation(Model):
@@ -61,3 +68,4 @@ class User(Author):
 
 class Company(Model):
     pass
+
