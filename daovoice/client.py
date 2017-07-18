@@ -13,7 +13,7 @@ class Client(requests.Session):
     def __init__(self, base_url=DAOVOICE_API, timeout=DEFAULT_TIMEOUT, headers=None, token=None):
 
         super(Client, self).__init__()
-        if base_url.ends_with("/"):
+        if base_url.endswith("/"):
             self.base_url = base_url[:-1]
         else:
             self.base_url = base_url
