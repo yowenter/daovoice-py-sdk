@@ -28,5 +28,10 @@ for sub in subscriptions:
 # reply conversation 
 client.conversations.reply(id="11678500-4f3f-4ca3-a322-c5ced27d77f3", admin_id=admins[0].admin_id, body="hello")
 
+print client.conversations.assign(id="c68e24ba-6ee3-48ac-9eb0-58bd0786fcaf", admin_id=admins[0].admin_id,
+                                  assignee_type='admin', assignee={
+        'admin_id': admins[1].admin_id
+    })
+
 # create user 
 print client.user.create(user_id="test_134", name="example", email="example@daovoice.io")

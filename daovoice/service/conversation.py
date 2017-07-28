@@ -26,5 +26,15 @@ class Conversation(BaseService, Get):
 
         self.client._post_json(url, post_data)
 
-    def assign(self, **params):
-        pass
+    def assign(self, id, admin_id, assignee_type, assignee):
+        url = self.resource_url(id)
+        url = "%s/reply" % url
+
+        self.client._post_json(url, {
+            'admin': {
+                'admin_id': admin_id
+            },
+            'message_type': 'assignment',
+            'assignee_type': assignee_type,
+            'assignee': assignee
+        })
