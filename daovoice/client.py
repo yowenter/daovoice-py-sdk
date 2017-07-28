@@ -17,7 +17,7 @@ class Client(requests.Session):
             self.base_url = base_url[:-1]
         else:
             self.base_url = base_url
-            
+
         self._timeout = timeout
         self.headers = headers or DEFAULT_HEADERS.copy()
         if token:
@@ -72,14 +72,18 @@ class Client(requests.Session):
         return admin.Admin(self)
 
     @property
+    def subscriptions(self):
+        from daovoice.service import subscription
+        return subscription.Subscription(self)
+
+    @property
     def message(self):
         from daovoice.service import message
 
         return message.Message(self)
-    
+
     @property
     def user(self):
         from daovoice.service import user
-        
+
         return user.User(self)
-    
