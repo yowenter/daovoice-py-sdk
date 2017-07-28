@@ -20,19 +20,11 @@ class Model(DataMapperBase):
         elif isinstance(resp_json, list):
             return [cls(l) for l in resp_json]
 
-
     def __setattr__(self, key, value):
         if hasattr(self, key) and getattr(self, key) != value:
             self.changed_attributes.append(key)
 
         super(Model, self).__setattr__(key, value)
-        
-        
-    
-        
-    
-    
-
 
 
 class Conversation(Model):
@@ -62,10 +54,13 @@ class Admin(Author):
     resource_path = "admins"
 
 
+class Subscription(Model):
+    resource_path = "subscriptions"
+
+
 class User(Author):
     resource_path = "users"
 
 
 class Company(Model):
     pass
-

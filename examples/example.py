@@ -1,13 +1,13 @@
+import os
 from daovoice.client import Client
 
 # init client 
 
-client = Client(base_url="http://api.daovoice.co/v1",
-                token="EF802AE9611FD09B0F8B3BBFA13703A6061E20A9D5D68A36689845108D7D71C3")
+client = Client(token=os.getenv('TOKEN', ''))
 
 # get conversation
 
-conversation = client.conversations.get(id="0204274f-0e61-4c15-a794-9e950aca0eb0")
+conversation = client.conversations.get(id="11678500-4f3f-4ca3-a322-c5ced27d77f3")
 
 print conversation.conversation_parts
 print conversation.conversation_message
@@ -20,8 +20,13 @@ print admins
 for ad in admins:
     print ad.name
 
+subscriptions = client.subscriptions.all()
+
+for sub in subscriptions:
+    print sub.subscription_id
+
 # reply conversation 
-client.conversations.reply(id="0204274f-0e61-4c15-a794-9e950aca0eb0", admin_id=admins[0].admin_id, body="hello")
+client.conversations.reply(id="11678500-4f3f-4ca3-a322-c5ced27d77f3", admin_id=admins[0].admin_id, body="hello")
 
 # create user 
 print client.user.create(user_id="test_134", name="example", email="example@daovoice.io")
