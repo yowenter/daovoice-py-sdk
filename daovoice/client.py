@@ -87,3 +87,8 @@ class Client(requests.Session):
         from daovoice.service import user
 
         return user.User(self)
+
+    @property
+    def event(self):
+        from daovoice.service import event
+        return event.Event(self)

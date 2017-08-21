@@ -64,3 +64,8 @@ class User(Author):
 
 class Company(Model):
     pass
+
+
+class Event(Model):
+    resource_path = "events"
+
